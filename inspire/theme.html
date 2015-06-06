@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+
+<!-- Meta Tags -->
+<meta name="Description" content="<{$xoops_meta_description}>" />
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="keywords" content="<{$xoops_pagetitle}>,<{$xoops_meta_keywords}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="<{$smarty.const.META_GENER}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="revisit-after" content="<{$smarty.const.META_REV_AFT}>" />
+
+<!-- Styles/Relations -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="<{$xoops_url}>/backend.php" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" href="<{$xoops_imageurl}>otherCss/print.css" type="text/css" media="print" />
+<link rel="alternate stylesheet" type="text/css" href="<{$xoops_imageurl}>otherCss/highcontrast.css" title="zoom" rev="zoom" media="screen"/>
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" title="default" />
+
+<!-- Important! - Add specific code from modules -->
+<{$xoops_module_header}>
+
+<!-- JScripts -->
+
+<script type="text/javascript"><{$xoops_js}></script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="<{$xoops_url}>/themes/inspire/scripts/fixed.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="<{$xoops_url}>/themes/inspire/scripts/mootools.js"></script>
+<script type="text/javascript" src="<{$xoops_url}>/themes/inspire/scripts/selectsite.js"></script>
+
+<{if $xoops_showcblock == 1}>
+<script type="text/javascript" src="<{$xoops_url}>/themes/inspire/scripts/accordion.js"></script>
+<{/if}>
+
+<!-- Dublin Core MetaData [DCMI] Tags -->
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+<meta name="DC.title" lang="<{$xoops_langcode}>" content="<{$xoops_pagetitle}> - <{$xoops_sitename}>" />
+<meta name="DC.creator" content="<{$xoops_sitename}>" />
+<meta name="DC.subject" lang="<{$xoops_langcode}>" content="<{$xoops_meta_keywords}>, <{$xoops_pagetitle}>" />
+<meta name="DC.description" lang="<{$xoops_langcode}>" content="<{$xoops_pagetitle}>, <{$xoops_meta_description}>" />
+<meta name="DC.publisher" content="<{$xoops_sitename}>" />
+<meta name="DC.type" content="<{$smarty.const.META_DCMI_TYP}>" />
+<meta name="DC.format" content="text/html; charset=<{$xoops_charset}>" />
+<meta name="DC.identifier" scheme="DCTERMS.URI" content="<{$xoops_url}>" />
+<meta name="DC.language" scheme="DCTERMS.RFC1766" content="<{$xoops_langcode}>" />
+<meta name="DC.coverage" content="<{$smarty.const.META_DCMI_COV}>" /> 
+<meta name="DC.rights" content="<{$xoops_meta_copyright}>" />
+
+<title><{$xoops_sitename}><{if $xoops_pagetitle !=''}> - <{$xoops_pagetitle}><{/if}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+
+</head>
+<body>
+<div id="wrapper">
+  <div id="top">
+  	  <div id="cbl"><img src="<{$xoops_url}>/themes/inspire/light_bl.gif" /></div>
+  	  <div id="cbr"><img src="<{$xoops_url}>/themes/inspire/light_br.gif" /></div>
+		<div id="welcome">Welcome to <{$xoops_sitename}></div>
+			<{if !$xoops_isuser}>
+			<div id="headerform">
+				<form method="post" action="<{xoAppUrl /user.php op=login}>">
+				  <fieldset>
+				  Username
+				  <input name="uname" type="text" id="headerform-text" size="15" />
+				  Password
+				  <input name="pass" type="password" id="headerform-text" size="15" />
+				  <input type="hidden" name="xoops_redirect" value="<{$smarty.server.REQUEST_URI}>" />
+				  <input type="checkbox" name="rememberme" value="On" /> Remember
+				  <{if $lang_siteclosemsg}>
+				  <input type="hidden" name="xoops_login" value="1" />
+				  <{/if}>
+				  <input type="submit" id="headerform-submit" value="Login" />
+				  <{if !$lang_siteclosemsg}>
+				  <a href="<{xoAppUrl /register.php}>" title="Register">Register Now!</a>
+				  <{/if}>
+				  </fieldset>
+			   </form>
+			</div>
+			<{else}><div id="toptext">
+			        <{xoInboxCount assign=pmcount}>
+					<li><a href="<{xoAppUrl viewpmsg.php}>" title="Inbox"><{if $pmcount}>Inbox(New!)<{else}>Inbox<{/if}></a></li>
+					<li><a href="<{xoAppUrl /notifications.php}>" title="Notifications">Notifications</a></li>
+					<li><a href="<{xoAppUrl /user.php}>" title="Profile">Profile</a></li>
+					<{if $xoops_isadmin}>
+					<li><a href="<{xoAppUrl /admin.php}>" title="Admin">Admin</a></li>
+					<{/if}>
+					<li><a href="<{xoAppUrl /user.php op=logout}>" title="Log out" >Log out</a></li>
+					</div>
+			<{/if}>
+			
+	</div>
+  <div id="header">
+
+    <a href="<{$xoops_url}>"><img src="<{$xoops_url}>/themes/inspire/logo.gif" alt="XOOPS China" height="60" width="182" /></a>
+    <div id="ins-tabs"><!-- You might want to amend the content here -->
+      <ul>
+        <li><a <{if $xoops_showcblock == 1}>class="active"<{/if}> href="<{$xoops_url}>"><span>Homepage</span></a></li>
+		<li><a <{if $xoops_dirname eq "wfchannel"}>class="active"<{/if}> href="<{$xoops_url}>/modules/wfchannel"><span>About</span></a></li>
+        <li><a <{if $xoops_dirname eq "news"}>class="active"<{/if}> href="<{$xoops_url}>/modules/news"><span>News</span></a></li>
+        <li><a <{if $xoops_dirname eq "mediawiki"}>class="active"<{/if}> href="<{$xoops_url}>/modules/mediawiki"><span>Wiki</span></a></li>
+        <li><a <{if $xoops_dirname eq "article"}>class="active"<{/if}> href="<{$xoops_url}>/modules/article"><span>Document</span></a></li>
+        <li><a <{if $xoops_dirname eq "newbb"}>class="active"<{/if}> href="<{$xoops_url}>/modules/newbb"><span>Forum</span></a></li>
+        <li><a <{if $xoops_dirname eq "wfdownloads"}>class="active"<{/if}> href="<{$xoops_url}>/modules/wfdownloads"><span>Download</span></a></li>
+     </ul>
+    </div>
+  </div>
+  <div id="main">
+	<{if $xoops_showcblock == 1}>
+	  <div id="showcase">
+	  <div id="ctr"><img src="<{$xoops_url}>/themes/inspire/blue_tr.gif" /></div>
+  	  <div id="cbl"><img src="<{$xoops_url}>/themes/inspire/blue_bl.gif" /></div>
+  	  <div id="cbr"><img src="<{$xoops_url}>/themes/inspire/blue_br.gif" /></div>
+		<div id="showcaseleft"><!-- This is the tab title -->
+			<h3 class="ins-toggler">News</h3>
+			<h3 class="ins-toggler">Core</h3>
+			<h3 class="ins-toggler">Modules</h3>
+			<h3 class="ins-toggler">Themes</h3>
+			<h3 class="ins-toggler">Other topics</h3>
+			<h3 class="ins-toggler">Downloads</h3>
+			<h3 class="ins-toggler">Site of the Week</h3>
+			<div class="ins-boxholder">
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+				<div class="ins-box">
+				<!-- Add Content Here -->
+				</div>
+			</div>			
+		</div>
+		<div id="showcaseright">
+		  <div id="search">        
+				<form action="<{$xoops_url}>/search.php" method="get">
+					<fieldset>
+						<input type="text" id="search-text" name="query" size="15" />
+						<input type="hidden" name="action" value="results" />
+						<input id="search-submit" type="submit" value="Search" />
+					</fieldset>
+				</form>
+				<div id="downloadframe">
+					<img src="<{$xoops_url}>/themes/inspire/download.gif" />
+					<div class="download">Get Latest Version <a href="#">2.3.3</a></div>
+						<b>Others£º</b>
+						<!-- Add Content Here -->
+				</div>
+		  </div>
+		</div>
+	  </div>
+	  <div id="slide">
+		<ul>
+			<li>
+				<a href="#" class="slide-newbie">Newbie</a><br />
+			</li>
+			<li>
+				<a href="#" class="slide-module">Modules</a><br />
+			</li>
+			<li>
+				<a href="#" class="slide-theme">Themes</a><br />
+			</li>
+			<li>
+				<a href="#" class="slide-support">Community</a><br />
+			</li>
+		</ul>
+	  </div>
+	<{else}>
+	<div id="showcasesmall">
+	  <div id="ctl"><img src="<{$xoops_url}>/themes/inspire/blue_tl.gif" /></div>
+	  <div id="ctr"><img src="<{$xoops_url}>/themes/inspire/blue_tr.gif" /></div>
+  	  <div id="cbl"><img src="<{$xoops_url}>/themes/inspire/blue_bl.gif" /></div>
+  	  <div id="cbr"><img src="<{$xoops_url}>/themes/inspire/blue_br.gif" /></div>
+			<div id="showcaseleftsmall">
+			  <div id="search">        
+					<form action="<{$xoops_url}>/search.php" method="get">
+						<fieldset>
+							<input type="text" id="search-textsmall" name="query" size="15" />
+							<input type="hidden" name="action" value="results" />
+							<input id="search-submit" type="submit" value="Search" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div id="showcaserightsmall">
+				<div class="downloadsmall">The latest stable release is <a href="#">2.3.3</a></div>
+			</div>
+	</div>
+	<{/if}>
+	<div id="maincontent">
+	<{$xoops_contents}>
+	</div>
+	  <div id="sidebar">
+	  <div id="ctr"><img src="<{$xoops_url}>/themes/inspire/green_tr.gif" /></div>
+  	  <div id="cbl"><img src="<{$xoops_url}>/themes/inspire/green_bl.gif" /></div>
+  	  <div id="cbr"><img src="<{$xoops_url}>/themes/inspire/green_br.gif" /></div>
+		<ul>
+			<{foreach item=block from=$xoops_rblocks}>
+			<{if $xoops_lblocks or $xoops_rblocks}>
+				<!-- Sides block -->
+				<li>
+				<{if $block.title == ''}> <{* Useful for diplaying well blocks with no title *}>
+				<{$block.content}>
+				<{else}>
+				<h2><{$block.title}></h2>
+				<{$block.content}>
+				<{/if}>
+				<!-- Side block end -->
+				</li>
+				<{/if}>
+			<{/foreach}>
+		</ul>
+	  </div>
+	</div>
+	<div id="footer">
+	<div id="ctl"><img src="<{$xoops_url}>/themes/inspire/light_tl.gif" /></div>
+	<div id="ctr"><img src="<{$xoops_url}>/themes/inspire/light_tr.gif" /></div>
+	<a href="#">Report a Bug</a> | <a href="<{$xoops_url}>/modules/sitemap">Sitemap</a> | Copyright <a href="<{$xoops_url}>"><{$xoops_sitename}></a> | Theme: Inspire - designed by <a href="http://zen.xoops.org.cn">XOOPS Zen Garden</a> | Powered by <a href="http://xoops.org.cn">XOOPS</a>
+	</div>
+	
+</div>
+
+<!-- Right Float Block -->
+	<div class="ins-leftbar">
+		<a id="h_toggle" class="selectsite" href="#"><img src="<{$xoops_url}>/themes/inspire/selectsite.gif"></a>
+		<div id="horizontal_slide">
+		<strong>Strong Text</strong>
+		<br />
+		Modify the text here!
+		<br />
+		<a href="#">A Link</a>		
+		</div>
+	</div>
+
+</body>
+</html>
